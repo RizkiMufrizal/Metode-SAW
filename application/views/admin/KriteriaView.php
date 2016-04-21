@@ -56,14 +56,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($kriteria as $k) { ?>
+                                    <?php
+                                    $totalBobot = 0;
+                                    foreach ($kriteria as $k) {
+                                        ?>
                                         <tr>
                                             <td><?php echo $k->id_kriteria; ?></td>
                                             <td><?php echo $k->kriteria; ?></td>
                                             <td><?php echo $k->bobot; ?></td>
                                         </tr>
-                                    <?php } ?>
+                                        <?php
+                                        $totalBobot = $totalBobot + $k->bobot;
+                                    }
+                                    ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total Kriteria : </td>
+                                        <td><?php echo $totalBobot; ?></td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
