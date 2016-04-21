@@ -14,7 +14,8 @@ class CalonSiswaController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->Model('CalonSiswa');
+        $this->load->model('CalonSiswa');
+        $this->load->model('NilaiCalonSiswa');
     }
 
     public function index() {
@@ -32,6 +33,11 @@ class CalonSiswaController extends CI_Controller {
         );
         $this->CalonSiswa->tambahCalonSiswa($val);
         redirect('admin/CalonSiswaController');
+    }
+
+    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
+        $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
+        $this->load->view('admin/CalonSiswaTambahView', $data);
     }
 
 }
