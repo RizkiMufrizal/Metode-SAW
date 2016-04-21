@@ -55,6 +55,7 @@
                                         <th>Jenis Kelamin</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,6 +66,13 @@
                                             <td><?php echo $s->jenis_kelamin; ?></td>
                                             <td><?php echo $s->tanggal_lahir; ?></td>
                                             <td><?php echo $s->alamat; ?></td>
+                                            <td class="text-center">
+                                                <?php if ($s->status) { ?>
+                                                    <button class="btn btn-success" disabled>Tambah Nilai</button>
+                                                <?php } else { ?>
+                                                    <button class="btn btn-success">Tambah Nilai</button>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
