@@ -15,7 +15,7 @@ USE metode_saw;
 CREATE TABLE tb_kriteria(
     id_kriteria VARCHAR(150) NOT NULL PRIMARY KEY,
     kriteria VARCHAR(10) NOT NULL,
-    bobot INT(3) NOT NULL
+    bobot FLOAT NOT NULL
 )ENGINE=INNODB;
 
 CREATE TABLE tb_calon_siswa(
@@ -28,11 +28,11 @@ CREATE TABLE tb_calon_siswa(
 
 CREATE TABLE tb_nilai_calon_siswa(
     id_nilai VARCHAR(150) NOT NULL PRIMARY KEY,
-    c1 INT(3) NOT NULL,
-    c2 INT(3) NOT NULL,
-    c3 INT(3) NOT NULL,
-    c4 INT(3) NOT NULL,
-    c5 INT(3) NOT NULL,
+    c1 FLOAT NOT NULL,
+    c2 FLOAT NOT NULL,
+    c3 FLOAT NOT NULL,
+    c4 FLOAT NOT NULL,
+    c5 FLOAT NOT NULL,
     nim VARCHAR(50) NOT NULL,
     FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
 )ENGINE=INNODB;
