@@ -37,7 +37,7 @@ class CalonSiswaController extends CI_Controller {
 
     public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
         $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
-        $this->load->view('admin/CalonSiswaTambahView', $data);
+        $this->load->view('admin/CalonSiswaTambahNilaView', $data);
     }
 
 }
