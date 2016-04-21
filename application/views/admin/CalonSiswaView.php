@@ -103,7 +103,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea class="form-control" placeholder="Masukkan Alamat Anda"></textarea>
+                                <textarea name="alamat" class="form-control" placeholder="Masukkan Alamat Anda"></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan</button>
