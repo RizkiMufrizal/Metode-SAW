@@ -30,6 +30,9 @@
             <li>
                 <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController"><i class="glyphicon glyphicon-dashboard"></i> Data Calon Siswa</a>
             </li>
+            <li>
+                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController"><i class="glyphicon glyphicon-dashboard"></i> Data Kriteria</a>
+            </li>
         </ul>
     </div>
 </nav>
