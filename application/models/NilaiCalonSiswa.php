@@ -12,13 +12,12 @@
  */
 class NilaiCalonSiswa extends CI_Model {
 
-    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
-        $this->db->where('nim', $nim);
+    public function ambilCalonSiswaDanNilai() {
         return $this->db->get('tb_calon_siswa_nilai')->result();
     }
 
-    public function ambilCalonSiswaDanNilai() {
-        return $this->db->get('tb_calon_siswa_nilai')->result();
+    public function tambahNilaiCalonSiswa($nilaiCalonSiswa) {
+        $this->db->insert('tb_nilai_calon_siswa', $nilaiCalonSiswa);
     }
 
 }
