@@ -70,7 +70,9 @@
                                                 <?php if ($s->status) { ?>
                                                     <button class="btn btn-success" disabled>Tambah Nilai</button>
                                                 <?php } else { ?>
-                                                    <button class="btn btn-success">Tambah Nilai</button>
+                                                    <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim; ?>">
+                                                        <button class="btn btn-success">Tambah Nilai</button>
+                                                    </a>
                                                 <?php } ?>
                                             </td>
                                         </tr>
