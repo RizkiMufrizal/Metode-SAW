@@ -15,11 +15,35 @@ class NilaiCalonSiswaController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('NilaiCalonSiswa');
+        $this->load->model('CalonSiswa');
     }
 
     public function index() {
         $data['nilai_calon_siswa'] = $this->NilaiCalonSiswa->ambilCalonSiswaDanNilai();
         $this->load->view('admin/NilaiCalonSiswaView', $data);
+    }
+
+    public function tambahNilaiCalonSiswa() {
+
+        $nim = $this->input->post('nim');
+
+        $val = array(
+            'id_nilai' => $this->uuid->v4(),
+            'c1' => $this->input->post('c1'),
+            'c2' => $this->input->post('c2'),
+            'c3' => $this->input->post('c3'),
+            'c4' => $this->input->post('c4'),
+            'c5' => $this->input->post('c5'),
+            'nim' => $nim
+        );
+        $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
+
+        $valCalonSiswa = array(
+            'status' => TRUE
+        );
+        $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nim);
+
+        redirect('admin/NilaiCalonSiswaController');
     }
 
 }
