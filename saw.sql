@@ -23,7 +23,8 @@ CREATE TABLE tb_calon_siswa(
     nama VARCHAR(50) NOT NULL,
     jenis_kelamin VARCHAR(6) NOT NULL,
     tanggal_lahir DATE NOT NULL,
-    alamat TEXT NOT NULL
+    alamat TEXT NOT NULL,
+    status BOOLEAN DEFAULT FALSE
 )ENGINE=INNODB;
 
 CREATE TABLE tb_nilai_calon_siswa(
