@@ -38,6 +38,18 @@ CREATE TABLE tb_nilai_calon_siswa(
     FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
 )ENGINE=INNODB;
 
+CREATE TABLE tb_normalisasi(
+    id_normalisasi VARCHAR(150) NOT NULL PRIMARY KEY,
+    nilai_c1 FLOAT NOT NULL,
+    nilai_c2 FLOAT NOT NULL,
+    nilai_c3 FLOAT NOT NULL,
+    nilai_c4 FLOAT NOT NULL,
+    nilai_c5 FLOAT NOT NULL,
+    total_nilai FLOAT NOT NULL,
+    nim VARCHAR(50) NOT NULL,
+    FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
+)ENGINE=INNODB;
+
 CREATE TABLE tb_user(
     email VARCHAR(50) NOT NULL PRIMARY KEY,
     password VARCHAR(15) NOT NULL
