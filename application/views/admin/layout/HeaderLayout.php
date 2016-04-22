@@ -36,6 +36,9 @@
             <li>
                 <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController"><i class="glyphicon glyphicon-dashboard"></i> Data Nilai Calon Siswa</a>
             </li>
+            <li>
+                <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController"><i class="glyphicon glyphicon-dashboard"></i> Data Normalisasi</a>
+            </li>
         </ul>
     </div>
 </nav>
