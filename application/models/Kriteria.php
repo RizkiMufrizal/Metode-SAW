@@ -17,6 +17,7 @@ class Kriteria extends CI_Model {
     }
 
     public function ambilKriteria() {
+        $this->db->order_by('kriteria', 'asc');
         return $this->db->get('tb_kriteria')->result();
     }
 
