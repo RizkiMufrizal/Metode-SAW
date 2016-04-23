@@ -73,18 +73,20 @@ class NormalisasiController extends CI_Controller {
 
             foreach ($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria as $n) {
 
-                $val = array(
-                    'id_normalisasi' => $this->uuid->v4(),
-                    'nilai_c1' => $n['hasil_akhir'][0]['hasil'],
-                    'nilai_c2' => $n['hasil_akhir'][1]['hasil'],
-                    'nilai_c3' => $n['hasil_akhir'][2]['hasil'],
-                    'nilai_c4' => $n['hasil_akhir'][3]['hasil'],
-                    'nilai_c5' => $n['hasil_akhir'][4]['hasil'],
-                    'total_nilai' => $n['hasil_akhir'][0]['hasil'] + $n['hasil_akhir'][1]['hasil'] + $n['hasil_akhir'][2]['hasil'] + $n['hasil_akhir'][3]['hasil'] + $n['hasil_akhir'][4]['hasil'],
-                    'nim' => $n['nim']
-                );
+                if($this->Normalisasi->ambilNormalisasiBerdasakanNim($n['nim']) == 0){
+                    $val = array(
+                        'id_normalisasi' => $this->uuid->v4(),
+                        'nilai_c1' => $n['hasil_akhir'][0]['hasil'],
+                        'nilai_c2' => $n['hasil_akhir'][1]['hasil'],
+                        'nilai_c3' => $n['hasil_akhir'][2]['hasil'],
+                        'nilai_c4' => $n['hasil_akhir'][3]['hasil'],
+                        'nilai_c5' => $n['hasil_akhir'][4]['hasil'],
+                        'total_nilai' => $n['hasil_akhir'][0]['hasil'] + $n['hasil_akhir'][1]['hasil'] + $n['hasil_akhir'][2]['hasil'] + $n['hasil_akhir'][3]['hasil'] + $n['hasil_akhir'][4]['hasil'],
+                        'nim' => $n['nim']
+                    );
 
-                $this->Normalisasi->tambahNormalisasi($val);
+                    $this->Normalisasi->tambahNormalisasi($val);
+                }
 
             }
         }
