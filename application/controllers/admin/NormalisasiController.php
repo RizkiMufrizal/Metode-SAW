@@ -56,66 +56,39 @@ class NormalisasiController extends CI_Controller {
             }
 
             //mencari nilai normalisasi karena faktor kriteria benefit berdasarkan nilai maksimal
-            foreach ($hasilMaxDariSetiapKriteria as $hmdsk) {
-                foreach ($nilaiCalonSiswa as $n) {
-                    array_push($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria, array(
-                        'nim' => $n['nim'],
-                        'nama' => $n['nama'],
+            foreach ($nilaiCalonSiswa as $n) {
+                $c = array();
+                foreach ($hasilMaxDariSetiapKriteria as $hmdsk) {
+                    array_push($c, array(
                         'kriteria' => $hmdsk['kriteria'],
                         'hasil' => $n[$hmdsk['kriteria']] / $hmdsk['hasil']
                     ));
                 }
+                array_push($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria, array(
+                    'nim' => $n['nim'],
+                    'nama' => $n['nama'],
+                    'hasil_akhir' => $c
+                ));        
             }
 
-            //sort berdasarkan calon dan kriteria
-            asort($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria);
+            foreach ($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria as $n) {
 
-            //jumlah total
-            $jumlahBerdasarkanCalonSiswaDanKriteria = 0;
+                $val = array(
+                    'id_normalisasi' => $this->uuid->v4(),
+                    'nilai_c1' => $n['hasil_akhir'][0]['hasil'],
+                    'nilai_c2' => $n['hasil_akhir'][1]['hasil'],
+                    'nilai_c3' => $n['hasil_akhir'][2]['hasil'],
+                    'nilai_c4' => $n['hasil_akhir'][3]['hasil'],
+                    'nilai_c5' => $n['hasil_akhir'][4]['hasil'],
+                    'total_nilai' => $n['hasil_akhir'][0]['hasil'] + $n['hasil_akhir'][1]['hasil'] + $n['hasil_akhir'][2]['hasil'] + $n['hasil_akhir'][3]['hasil'] + $n['hasil_akhir'][4]['hasil'],
+                    'nim' => $n['nim']
+                );
 
-            //data semantara calon siswa dan nilai
-            $dataSementaraCalonSiswaDanNilai = array();
+                $this->Normalisasi->tambahNormalisasi($val);
 
-            //data sementara nim agar mempermudah perjumlahan
-            $dataSementaraNim = array();
-
-            foreach ($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria as $nhbankdnxk) {
-
-                if (!in_array($nhbankdnxk['nim'], $dataSementaraNim)) {
-                    array_push($dataSementaraNim, $nhbankdnxk['nim']);
-                    $jumlahBerdasarkanCalonSiswaDanKriteria = 0;
-                }
-
-                foreach ($kriteria as $k) {
-                    if ($k->kriteria == $nhbankdnxk['kriteria']) {
-
-                        $hasilSemantara = $nhbankdnxk['hasil'] * $k->bobot;
-
-                        $jumlahBerdasarkanCalonSiswaDanKriteria = $hasilSemantara + $jumlahBerdasarkanCalonSiswaDanKriteria;
-
-                        array_push($dataSementaraCalonSiswaDanNilai, array(
-                            'nim' => $nhbankdnxk['nim'],
-                            'nama' => $nhbankdnxk['nama'],
-                            'kriteria' => $nhbankdnxk['kriteria'],
-                            'hasil' => $jumlahBerdasarkanCalonSiswaDanKriteria
-                        ));
-                    }
-                }
-            }
-
-            print_r(json_encode($dataSementaraCalonSiswaDanNilai));
-
-            $dataSementaraNimHapusDuplicate = array();
-
-            for ($i = 0; $i < sizeof($dataSementaraCalonSiswaDanNilai); $i++) {
-                if (sizeof($dataSementaraNimHapusDuplicate) == 0) {
-                    array_push($dataSementaraNimHapusDuplicate, $dataSementaraCalonSiswaDanNilai[$i]['nim']);
-                } else if (!in_array($dataSementaraCalonSiswaDanNilai[$i]['nim'], $dataSementaraNimHapusDuplicate) and sizeof($dataSementaraNim) != 0) {
-                    array_push($dataSementaraNimHapusDuplicate, $dataSementaraCalonSiswaDanNilai[$i]['nim']);
-                    echo $dataSementaraCalonSiswaDanNilai[$i]['hasil'] . '<br/>';
-                }
             }
         }
+        redirect('admin/NormalisasiController');
     }
 
 }
