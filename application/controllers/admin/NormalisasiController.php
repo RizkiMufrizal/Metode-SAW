@@ -40,9 +40,6 @@ class NormalisasiController extends CI_Controller {
         //hasil pembagian antara nilai kriteria dan nilai max kriteria
         $nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria = array();
 
-        //hasil akhir untuk setiap calon siswa dan kriteria
-        $hasilAkhirPerCalonSiswaDanKriteria = array();
-
         if ($jumlahCalonSiswaDenganNilai > 0) {
 
             //mencari nilai max dari setiap kriteria
