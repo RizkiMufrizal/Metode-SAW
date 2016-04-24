@@ -17,7 +17,12 @@ SELECT
   `tb_nilai_calon_siswa`.`c2`,
   `tb_nilai_calon_siswa`.`c3`,
   `tb_nilai_calon_siswa`.`c4`,
-  `tb_nilai_calon_siswa`.`c5`
+  `tb_nilai_calon_siswa`.`c5`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c1`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c2`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c3`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c4`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c5`
 FROM
   `tb_calon_siswa`
 INNER JOIN
