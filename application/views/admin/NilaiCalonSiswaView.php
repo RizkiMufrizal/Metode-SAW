@@ -46,13 +46,25 @@
                             <table id="calonsiswa" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th>NIM</th>
-                                        <th>Nama</th>
-                                        <th>Criteria 1</th>
-                                        <th>Criteria 2</th>
-                                        <th>Criteria 3</th>
-                                        <th>Criteria 4</th>
-                                        <th>Criteria 5</th>
+                                        <th rowspan="2">NIM</th>
+                                        <th rowspan="2">Nama</th>
+                                        <th colspan="2">Criteria 1</th>
+                                        <th colspan="2">Criteria 2</th>
+                                        <th colspan="2">Criteria 3</th>
+                                        <th colspan="2">Criteria 4</th>
+                                        <th colspan="2">Criteria 5</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Nilai Range</th>
+                                        <th>Nilai Asli</th>
+                                        <th>Nilai Range</th>
+                                        <th>Nilai Asli</th>
+                                        <th>Nilai Range</th>
+                                        <th>Nilai Asli</th>
+                                        <th>Nilai Range</th>
+                                        <th>Nilai Asli</th>
+                                        <th>Nilai Range</th>
+                                        <th>Nilai Asli</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,11 +72,16 @@
                                         <tr>
                                             <td><?php echo $n->nim; ?></td>
                                             <td><?php echo $n->nama; ?></td>
-                                            <td><?php echo $n->c1; ?> | <?php echo $n->nilai_asli_c1; ?></td>
-                                            <td><?php echo $n->c2; ?> | <?php echo $n->nilai_asli_c2; ?></td>
-                                            <td><?php echo $n->c3; ?> | <?php echo $n->nilai_asli_c3; ?></td>
-                                            <td><?php echo $n->c4; ?> | <?php echo $n->nilai_asli_c4; ?></td>
-                                            <td><?php echo $n->c5; ?> | <?php echo $n->nilai_asli_c5; ?></td>
+                                            <td><?php echo $n->c1; ?></td>
+                                            <td><?php echo $n->nilai_asli_c1; ?></td>
+                                            <td><?php echo $n->c2; ?></td>
+                                            <td><?php echo $n->nilai_asli_c2; ?></td>
+                                            <td><?php echo $n->c3; ?></td>
+                                            <td><?php echo $n->nilai_asli_c3; ?></td>
+                                            <td><?php echo $n->c4; ?></td>
+                                            <td><?php echo $n->nilai_asli_c4; ?></td>
+                                            <td><?php echo $n->c5; ?></td>
+                                            <td><?php echo $n->nilai_asli_c5; ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
