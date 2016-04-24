@@ -60,10 +60,11 @@
                                         <th>Criteria 4</th>
                                         <th>Criteria 5</th>
                                         <th>Total Nilai</th>
+                                        <th>Rangking</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($normalisasi as $n) { ?>
+                                    <?php $i = 0; foreach ($normalisasi as $n) { $i++; ?>
                                         <tr>
                                             <td><?php echo $n->nim; ?></td>
                                             <td><?php echo $n->nama; ?></td>
@@ -73,6 +74,7 @@
                                             <td><?php echo $n->nilai_c4; ?></td>
                                             <td><?php echo $n->nilai_c5; ?></td>
                                             <td><?php echo $n->total_nilai; ?></td>
+                                            <td><?php echo $i; ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
