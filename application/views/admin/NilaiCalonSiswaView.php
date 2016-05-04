@@ -48,11 +48,11 @@
                                     <tr>
                                         <th rowspan="2">NIM</th>
                                         <th rowspan="2">Nama</th>
-                                        <th colspan="2">Criteria 1</th>
-                                        <th colspan="2">Criteria 2</th>
-                                        <th colspan="2">Criteria 3</th>
-                                        <th colspan="2">Criteria 4</th>
-                                        <th colspan="2">Criteria 5</th>
+                                        <th colspan="2">Nilai Psikotes</th>
+                                        <th colspan="2">Nilai PSM Test</th>
+                                        <th colspan="2">Nilai Angket Siswa</th>
+                                        <th colspan="2">Nilai UN</th>
+                                        <th colspan="2">Nilai Raport</th>
                                     </tr>
                                     <tr>
                                         <th>Nilai Range</th>

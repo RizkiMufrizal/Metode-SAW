@@ -58,27 +58,27 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Kriteria 1</label>
+                                        <label>Nilai Psikotes</label>
                                         <input type="text" name="c1" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 1">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Kriteria 2</label>
+                                        <label>Nilai PSM Test</label>
                                         <input type="text" name="c2" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 2">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Kriteria 3</label>
+                                        <label>Nilai Angket Siswa</label>
                                         <input type="text" name="c3" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 3">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Kriteria 4</label>
+                                        <label>Nilai UN</label>
                                         <input type="text" name="c4" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 4">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Kriteria 5</label>
+                                        <label>Nilai Raport</label>
                                         <input type="text" name="c5" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 5">
                                     </div>
 

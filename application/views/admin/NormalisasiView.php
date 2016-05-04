@@ -54,11 +54,11 @@
                                     <tr>
                                         <th>NIM</th>
                                         <th>Nama</th>
-                                        <th>Criteria 1</th>
-                                        <th>Criteria 2</th>
-                                        <th>Criteria 3</th>
-                                        <th>Criteria 4</th>
-                                        <th>Criteria 5</th>
+                                        <th>Nilai Psikotes</th>
+                                        <th>Nilai PSM Test</th>
+                                        <th>Nilai Angket Siswa</th>
+                                        <th>Nilai UN</th>
+                                        <th>Nilai Raport</th>
                                         <th>Total Nilai</th>
                                         <th>Rangking</th>
                                     </tr>

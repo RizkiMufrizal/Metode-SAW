@@ -43,7 +43,11 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
+                            <?php if (sizeof($kriteria) == 5) { ?>
+                                <button class="btn btn-primary" disabled>Tambah Data</button>
+                            <?php } else { ?>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
+                            <?php } ?>
 
                             <p></p>
 
@@ -51,6 +55,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID Kriteria</th>
+                                        <th>Keterangan</th>
                                         <th>Kriteria</th>
                                         <th>Bobot</th>
                                     </tr>
@@ -62,6 +67,7 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $k->id_kriteria; ?></td>
+                                            <td><?php echo $k->keterangan; ?></td>
                                             <td><?php echo $k->kriteria; ?></td>
                                             <td><?php echo $k->bobot; ?></td>
                                         </tr>
@@ -72,6 +78,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <td></td>
                                         <td></td>
                                         <td>Total Kriteria : </td>
                                         <td><?php echo $totalBobot; ?></td>
@@ -97,6 +104,10 @@
                             <div class="form-group">
                                 <label>Kriteria</label>
                                 <input type="text" name="kriteria" class="form-control" placeholder="Masukkan Kriteria">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="keterangan" class="form-control" placeholder="Masukkan Keterangan">
                             </div>
                             <div class="form-group">
                                 <label>Bobot</label>

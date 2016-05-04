@@ -40,5 +40,17 @@
                 <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController"><i class="glyphicon glyphicon-dashboard"></i> Data Normalisasi Dan Rangking</a>
             </li>
         </ul>
+
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <?php echo $this->session->userdata('username'); ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="<?php echo base_url(); ?>index.php/admin/logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
     </div>
 </nav>

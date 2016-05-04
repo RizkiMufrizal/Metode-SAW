@@ -45,6 +45,14 @@
 
                             <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
 
+                            <?php if (sizeof($calon_siswa) <= 0) { ?>
+                                <button class="btn btn-danger" disabled>Hapus Seluruh Data</button>
+                            <?php } else { ?>
+                                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/hapusCalonSiswa">
+                                    <button class="btn btn-danger">Hapus Seluruh Data</button>
+                                </a>
+                            <?php } ?>
+
                             <p></p>
 
                             <table id="calonsiswa" class="table table-bordered table-hover table-striped">
