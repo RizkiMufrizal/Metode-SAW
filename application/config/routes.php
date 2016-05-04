@@ -50,5 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'IndexController';
+
+$route['admin/login']['GET'] = 'admin/UserController/halamanUser';
+$route['admin/login']['POST'] = 'admin/UserController/prosesLogin';
+$route['admin/logout']['GET'] = 'admin/UserController/prosesLogout';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
