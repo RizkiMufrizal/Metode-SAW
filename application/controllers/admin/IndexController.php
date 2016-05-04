@@ -13,7 +13,13 @@
 class IndexController extends CI_Controller {
 
     public function index() {
-        $this->load->view('admin/IndexView');
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->load->view('admin/IndexView');
+        }
     }
 
 }

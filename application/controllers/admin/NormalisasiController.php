@@ -20,8 +20,14 @@ class NormalisasiController extends CI_Controller {
     }
 
     public function index() {
-        $data['normalisasi'] = $this->Normalisasi->ambilNormalisasi();
-        $this->load->view('admin/NormalisasiView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['normalisasi'] = $this->Normalisasi->ambilNormalisasi();
+            $this->load->view('admin/NormalisasiView', $data);
+        }
     }
 
     public function prosesNormalisasi() {

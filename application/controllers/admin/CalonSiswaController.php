@@ -19,8 +19,14 @@ class CalonSiswaController extends CI_Controller {
     }
 
     public function index() {
-        $data['calon_siswa'] = $this->CalonSiswa->ambilCalonSiswa();
-        $this->load->view('admin/CalonSiswaView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['calon_siswa'] = $this->CalonSiswa->ambilCalonSiswa();
+            $this->load->view('admin/CalonSiswaView', $data);
+        }
     }
 
     public function tambahCalonSiswa() {
@@ -38,6 +44,11 @@ class CalonSiswaController extends CI_Controller {
     public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
         $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
         $this->load->view('admin/CalonSiswaTambahNilaView', $data);
+    }
+
+    public function hapusCalonSiswa() {
+        $this->CalonSiswa->hapusCalonSiswa();
+        redirect('admin/CalonSiswaController');
     }
 
 }

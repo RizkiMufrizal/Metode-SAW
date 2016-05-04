@@ -18,15 +18,22 @@ class KriteriaController extends CI_Controller {
     }
 
     public function index() {
-        $data['kriteria'] = $this->Kriteria->ambilKriteria();
-        $this->load->view('admin/KriteriaView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['kriteria'] = $this->Kriteria->ambilKriteria();
+            $this->load->view('admin/KriteriaView', $data);
+        }
     }
 
     public function tambahKriteria() {
         $val = array(
             'id_kriteria' => $this->uuid->v4(),
             'kriteria' => $this->input->post('kriteria'),
-            'bobot' => $this->input->post('bobot')
+            'bobot' => $this->input->post('bobot'),
+            'keterangan' => $this->input->post('keterangan')
         );
         $this->Kriteria->tambahKriteria($val);
         redirect('admin/KriteriaController');

@@ -20,8 +20,14 @@ class NilaiCalonSiswaController extends CI_Controller {
     }
 
     public function index() {
-        $data['nilai_calon_siswa'] = $this->NilaiCalonSiswa->ambilCalonSiswaDanNilai();
-        $this->load->view('admin/NilaiCalonSiswaView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['nilai_calon_siswa'] = $this->NilaiCalonSiswa->ambilCalonSiswaDanNilai();
+            $this->load->view('admin/NilaiCalonSiswaView', $data);
+        }
     }
 
     public function tambahNilaiCalonSiswa() {
