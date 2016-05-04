@@ -43,6 +43,17 @@
                     <div class="row">
                         <div class="col-lg-12">
 
+                            <form method="post" action="<?php echo base_url() ?>index.php/admin/CalonSiswaController/uploadCsvCalonSiswa" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Upload Data Calon Dan Nilai Siswa</label>
+                                    <input type="file" name="csv">
+                                    <p class="help-block">Silahkan browse file csv untuk data calon dan nilai siswa</p>
+                                </div>
+                                <button type="submit" class="btn btn-success">Upload</button>
+                            </form>
+
+                            <br/>
+
                             <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
 
                             <?php if (sizeof($calon_siswa) <= 0) { ?>
