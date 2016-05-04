@@ -19,7 +19,7 @@ class CalonSiswa extends CI_Model {
     public function ambilCalonSiswa() {
         return $this->db->get('tb_calon_siswa')->result();
     }
-    
+
     public function ambilCalonSiswaBerdasarkanNim($nim) {
         $this->db->where('nim', $nim);
         return $this->db->get('tb_calon_siswa')->result();
@@ -28,6 +28,10 @@ class CalonSiswa extends CI_Model {
     public function ubahCalonSiswa($calonSiswa, $nim) {
         $this->db->where('nim', $nim);
         $this->db->update('tb_calon_siswa', $calonSiswa);
+    }
+
+    public function hapusCalonSiswa() {
+        $this->db->empty_table('tb_calon_siswa'); 
     }
 
 }
