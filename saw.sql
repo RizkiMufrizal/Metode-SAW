@@ -15,6 +15,7 @@ USE metode_saw;
 CREATE TABLE tb_kriteria(
     id_kriteria VARCHAR(150) NOT NULL PRIMARY KEY,
     kriteria VARCHAR(10) NOT NULL,
+    keterangan VARCHAR(50) NOT NULL,
     bobot FLOAT NOT NULL
 )ENGINE=INNODB;
 
@@ -67,6 +68,8 @@ CREATE TABLE tb_nilai_calon_siswa(
     nilai_asli_c5 FLOAT NOT NULL,
     nim VARCHAR(50) NOT NULL,
     FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 )ENGINE=INNODB;
 
 CREATE TABLE tb_normalisasi(
@@ -79,9 +82,13 @@ CREATE TABLE tb_normalisasi(
     total_nilai FLOAT NOT NULL,
     nim VARCHAR(50) NOT NULL,
     FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 )ENGINE=INNODB;
 
 CREATE TABLE tb_user(
     email VARCHAR(50) NOT NULL PRIMARY KEY,
-    password VARCHAR(15) NOT NULL
+    password VARCHAR(150) NOT NULL
 )ENGINE=INNODB;
+
+INSERT INTO `tb_user` (`email`, `password`) VALUES ('admin@gmail.com', '$2a$06$4zliyvsxzOUndwPSM56GYe8LCTMqO.qFNBA6bm9kjjDuHosz7eLyC');
