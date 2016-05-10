@@ -1,28 +1,28 @@
 <?php
 
 /**
- *
  * Author Rizki Mufrizal <mufrizalrizki@gmail.com>
  * Since Apr 21, 2016
  * Time 10:16:56 PM
  * Encoding UTF-8
  * Project Metode-SAW
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
- * 
  */
-class NilaiCalonSiswaController extends CI_Controller {
-
-    public function __construct() {
+class NilaiCalonSiswaController extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('NilaiCalonSiswa');
         $this->load->model('CalonSiswa');
         $this->load->model('Himpunan');
     }
 
-    public function index() {
+    public function index()
+    {
         $session = $this->session->userdata('isLogin');
 
-        if ($session == FALSE) {
+        if ($session == false) {
             redirect('admin/login');
         } else {
             $data['nilai_calon_siswa'] = $this->NilaiCalonSiswa->ambilCalonSiswaDanNilai();
@@ -30,8 +30,8 @@ class NilaiCalonSiswaController extends CI_Controller {
         }
     }
 
-    public function tambahNilaiCalonSiswa() {
-
+    public function tambahNilaiCalonSiswa()
+    {
         $nim = $this->input->post('nim');
         $c1 = $this->input->post('c1');
         $c2 = $this->input->post('c2');
@@ -73,17 +73,16 @@ class NilaiCalonSiswaController extends CI_Controller {
             'c3' => $c3,
             'c4' => $c4,
             'c5' => $c5,
-            'nim' => $nim
+            'nim' => $nim,
         );
 
         $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
 
         $valCalonSiswa = array(
-            'status' => TRUE
+            'status' => true,
         );
         $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nim);
 
         redirect('admin/NilaiCalonSiswaController');
     }
-
 }

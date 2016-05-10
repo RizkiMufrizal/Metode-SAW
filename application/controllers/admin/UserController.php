@@ -7,20 +7,22 @@
  * Encoding UTF-8
  * Project Metode-SAW
  * Package Expression package is undefined on line 13, column 14 in Templates/Scripting/PHPClass.php.
- *
  */
-class UserController extends CI_Controller {
-
-    public function __construct() {
+class UserController extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('User');
     }
 
-    public function halamanUser() {
-        $this->load->view('admin/UserView', array('error' => NULL));
+    public function halamanUser()
+    {
+        $this->load->view('admin/UserView', array('error' => null));
     }
 
-    public function prosesLogin() {
+    public function prosesLogin()
+    {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
@@ -32,8 +34,8 @@ class UserController extends CI_Controller {
         } else {
             if ($this->bcrypt->check_password($password, $user[0]->password)) {
                 $this->session->set_userdata(array(
-                    'isLogin' => TRUE,
-                    'username' => $email
+                    'isLogin' => true,
+                    'username' => $email,
                 ));
                 redirect('admin');
             } else {
@@ -43,9 +45,9 @@ class UserController extends CI_Controller {
         }
     }
 
-    public function prosesLogout() {
+    public function prosesLogout()
+    {
         $this->session->unset_userdata(array('isLogin', 'username'));
         redirect('admin/login');
     }
-
 }

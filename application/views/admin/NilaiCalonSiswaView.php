@@ -68,22 +68,36 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($nilai_calon_siswa as $n) { ?>
+                                    <?php foreach ($nilai_calon_siswa as $n) {
+    ?>
                                         <tr>
-                                            <td><?php echo $n->nim; ?></td>
-                                            <td><?php echo $n->nama; ?></td>
-                                            <td><?php echo $n->c1; ?></td>
-                                            <td><?php echo $n->nilai_asli_c1; ?></td>
-                                            <td><?php echo $n->c2; ?></td>
-                                            <td><?php echo $n->nilai_asli_c2; ?></td>
-                                            <td><?php echo $n->c3; ?></td>
-                                            <td><?php echo $n->nilai_asli_c3; ?></td>
-                                            <td><?php echo $n->c4; ?></td>
-                                            <td><?php echo $n->nilai_asli_c4; ?></td>
-                                            <td><?php echo $n->c5; ?></td>
-                                            <td><?php echo $n->nilai_asli_c5; ?></td>
+                                            <td><?php echo $n->nim;
+    ?></td>
+                                            <td><?php echo $n->nama;
+    ?></td>
+                                            <td><?php echo $n->c1;
+    ?></td>
+                                            <td><?php echo $n->nilai_asli_c1;
+    ?></td>
+                                            <td><?php echo $n->c2;
+    ?></td>
+                                            <td><?php echo $n->nilai_asli_c2;
+    ?></td>
+                                            <td><?php echo $n->c3;
+    ?></td>
+                                            <td><?php echo $n->nilai_asli_c3;
+    ?></td>
+                                            <td><?php echo $n->c4;
+    ?></td>
+                                            <td><?php echo $n->nilai_asli_c4;
+    ?></td>
+                                            <td><?php echo $n->c5;
+    ?></td>
+                                            <td><?php echo $n->nilai_asli_c5;
+    ?></td>
                                         </tr>
-                                    <?php } ?>
+                                    <?php
+} ?>
                                 </tbody>
                             </table>
                         </div>

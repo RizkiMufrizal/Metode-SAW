@@ -1,18 +1,17 @@
 <?php
 
 /**
- *
  * Author Rizki Mufrizal <mufrizalrizki@gmail.com>
  * Since Apr 21, 2016
  * Time 7:20:48 PM
  * Encoding UTF-8
  * Project Metode-Saw
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
- * 
  */
-class CalonSiswaController extends CI_Controller {
-
-    public function __construct() {
+class CalonSiswaController extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->library('CSVReader');
         $this->load->model('CalonSiswa');
@@ -20,10 +19,11 @@ class CalonSiswaController extends CI_Controller {
         $this->load->model('Himpunan');
     }
 
-    public function index() {
+    public function index()
+    {
         $session = $this->session->userdata('isLogin');
 
-        if ($session == FALSE) {
+        if ($session == false) {
             redirect('admin/login');
         } else {
             //$data['error'] = array('error' => '');
@@ -32,29 +32,33 @@ class CalonSiswaController extends CI_Controller {
         }
     }
 
-    public function tambahCalonSiswa() {
+    public function tambahCalonSiswa()
+    {
         $val = array(
             'nim' => $this->input->post('nim'),
             'nama' => $this->input->post('nama'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-            'alamat' => $this->input->post('alamat')
+            'alamat' => $this->input->post('alamat'),
         );
         $this->CalonSiswa->tambahCalonSiswa($val);
         redirect('admin/CalonSiswaController');
     }
 
-    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
+    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim)
+    {
         $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
         $this->load->view('admin/CalonSiswaTambahNilaView', $data);
     }
 
-    public function hapusCalonSiswa() {
+    public function hapusCalonSiswa()
+    {
         $this->CalonSiswa->hapusCalonSiswa();
         redirect('admin/CalonSiswaController');
     }
 
-    public function uploadCsvCalonSiswa() {
+    public function uploadCsvCalonSiswa()
+    {
         $namaFile = $this->uuid->v4();
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
@@ -66,7 +70,7 @@ class CalonSiswaController extends CI_Controller {
             echo $this->upload->display_errors();
         } else {
             $file_data = $this->upload->data();
-            $file_path = './uploads/' . $file_data['file_name'];
+            $file_path = './uploads/'.$file_data['file_name'];
 
             $result = $this->csvreader->parse_file($file_path);
 
@@ -77,7 +81,7 @@ class CalonSiswaController extends CI_Controller {
                     'nama' => $row['nama'],
                     'jenis_kelamin' => $row['jenis_kelamin'],
                     'tanggal_lahir' => $row['tanggal_lahir'],
-                    'alamat' => $row['alamat']
+                    'alamat' => $row['alamat'],
                 );
                 $this->CalonSiswa->tambahCalonSiswa($val);
             }
@@ -125,13 +129,13 @@ class CalonSiswaController extends CI_Controller {
                     'c3' => $c3,
                     'c4' => $c4,
                     'c5' => $c5,
-                    'nim' => $nim
+                    'nim' => $nim,
                 );
 
                 $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
 
                 $valCalonSiswa = array(
-                    'status' => TRUE
+                    'status' => true,
                 );
                 $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nim);
             }
@@ -139,5 +143,4 @@ class CalonSiswaController extends CI_Controller {
             redirect('admin/CalonSiswaController');
         }
     }
-
 }

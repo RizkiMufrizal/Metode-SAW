@@ -43,11 +43,15 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <?php if (sizeof($kriteria) == 5) { ?>
+                            <?php if (sizeof($kriteria) == 5) {
+    ?>
                                 <button class="btn btn-primary" disabled>Tambah Data</button>
-                            <?php } else { ?>
+                            <?php
+} else {
+    ?>
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
-                            <?php } ?>
+                            <?php
+} ?>
 
                             <p></p>
 
@@ -66,10 +70,14 @@
                                     foreach ($kriteria as $k) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $k->id_kriteria; ?></td>
-                                            <td><?php echo $k->keterangan; ?></td>
-                                            <td><?php echo $k->kriteria; ?></td>
-                                            <td><?php echo $k->bobot; ?></td>
+                                            <td><?php echo $k->id_kriteria;
+                                        ?></td>
+                                            <td><?php echo $k->keterangan;
+                                        ?></td>
+                                            <td><?php echo $k->kriteria;
+                                        ?></td>
+                                            <td><?php echo $k->bobot;
+                                        ?></td>
                                         </tr>
                                         <?php
                                         $totalBobot = $totalBobot + $k->bobot;

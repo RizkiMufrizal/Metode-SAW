@@ -25,7 +25,7 @@
 
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/css/signin.css" rel="stylesheet" type="text/css" />
-        
+
     </head>
     <body>
 
@@ -33,12 +33,15 @@
 
             <form class="form-signin" method="post" action="<?php echo base_url(); ?>index.php/admin/login">
 
-                <?php if ($error != NULL) { ?>
+                <?php if ($error != null) {
+    ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Warning !</strong> <?php echo $error; ?>
+                        <strong>Warning !</strong> <?php echo $error;
+    ?>
                     </div>
-                <?php } ?>
+                <?php
+} ?>
 
                 <h2 class="form-signin-heading">Please sign in</h2>
 
@@ -60,4 +63,3 @@
         <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>
-

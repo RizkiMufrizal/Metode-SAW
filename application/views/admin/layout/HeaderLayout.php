@@ -6,7 +6,7 @@
  Encoding UTF-8
  Project Aplikasi-Kebudayaan-Aceh
  Package Expression package is undefined on line 9, column 12 in Templates/Scripting/EmptyPHPWebPage.php.
-  
+
 -->
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
