@@ -56,18 +56,13 @@
 
                             <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
 
-                            <?php if (sizeof($calon_siswa) <= 0) {
-    ?>
+                            <?php if (sizeof($calon_siswa) <= 0) { ?>
                                 <button class="btn btn-danger" disabled>Hapus Seluruh Data</button>
-                            <?php
-} else {
-    ?>
-                                <a href="<?php echo base_url();
-    ?>index.php/admin/CalonSiswaController/hapusCalonSiswa">
+                            <?php } else { ?>
+                                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/hapusCalonSiswa">
                                     <button class="btn btn-danger">Hapus Seluruh Data</button>
                                 </a>
-                            <?php
-} ?>
+                            <?php } ?>
 
                             <p></p>
 
@@ -83,38 +78,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($calon_siswa as $s) {
-    ?>
+                                    <?php foreach ($calon_siswa as $s) { ?>
                                         <tr>
-                                            <td><?php echo $s->nim;
-    ?></td>
-                                            <td><?php echo $s->nama;
-    ?></td>
-                                            <td><?php echo $s->jenis_kelamin;
-    ?></td>
-                                            <td><?php echo $s->tanggal_lahir;
-    ?></td>
-                                            <td><?php echo $s->alamat;
-    ?></td>
+                                            <td><?php echo $s->nim; ?></td>
+                                            <td><?php echo $s->nama; ?></td>
+                                            <td><?php echo $s->jenis_kelamin; ?></td>
+                                            <td><?php echo $s->tanggal_lahir; ?></td>
+                                            <td><?php echo $s->alamat; ?></td>
                                             <td class="text-center">
-                                                <?php if ($s->status) {
-    ?>
+                                                <?php if ($s->status) { ?>
                                                     <button class="btn btn-success" disabled>Tambah Nilai</button>
-                                                <?php
-} else {
-    ?>
-                                                    <a href="<?php echo base_url();
-    ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim;
-    ?>">
+                                                <?php } else { ?>
+                                                    <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim; ?>">
                                                         <button class="btn btn-success">Tambah Nilai</button>
                                                     </a>
-                                                <?php
-}
-    ?>
+                                                <?php } ?>
                                             </td>
                                         </tr>
-                                    <?php
-} ?>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
