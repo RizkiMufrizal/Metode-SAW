@@ -16,7 +16,6 @@ class CalonSiswaController extends CI_Controller
         $this->load->library('CSVReader');
         $this->load->model('CalonSiswa');
         $this->load->model('NilaiCalonSiswa');
-        $this->load->model('Himpunan');
     }
 
     public function index()
@@ -26,7 +25,6 @@ class CalonSiswaController extends CI_Controller
         if ($session == false) {
             redirect('admin/login');
         } else {
-            //$data['error'] = array('error' => '');
             $data['calon_siswa'] = $this->CalonSiswa->ambilCalonSiswa();
             $this->load->view('admin/CalonSiswaView', $data);
         }
@@ -95,35 +93,8 @@ class CalonSiswaController extends CI_Controller
                 $c4 = $row['nilai_un'];
                 $c5 = $row['nilai_raport'];
 
-                foreach ($this->Himpunan->ambilHimpunan() as $h) {
-                    if ($c1 >= $h->batas_atas and $c1 <= $h->batas_bawah) {
-                        $c1 = $h->nilai;
-                    }
-
-                    if ($c2 >= $h->batas_atas and $c2 <= $h->batas_bawah) {
-                        $c2 = $h->nilai;
-                    }
-
-                    if ($c3 >= $h->batas_atas and $c3 <= $h->batas_bawah) {
-                        $c3 = $h->nilai;
-                    }
-
-                    if ($c4 >= $h->batas_atas and $c4 <= $h->batas_bawah) {
-                        $c4 = $h->nilai;
-                    }
-
-                    if ($c5 >= $h->batas_atas and $c5 <= $h->batas_bawah) {
-                        $c5 = $h->nilai;
-                    }
-                }
-
                 $val = array(
                     'id_nilai' => $this->uuid->v4(),
-                    'nilai_asli_c1' => $row['nilai_psikotes'],
-                    'nilai_asli_c2' => $row['nilai_psm_test'],
-                    'nilai_asli_c3' => $row['nilai_angket_siswa'],
-                    'nilai_asli_c4' => $row['nilai_un'],
-                    'nilai_asli_c5' => $row['nilai_raport'],
                     'c1' => $c1,
                     'c2' => $c2,
                     'c3' => $c3,
