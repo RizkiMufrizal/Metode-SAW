@@ -8,16 +8,14 @@
  * Project Metode-SAW
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
  */
-class KriteriaController extends CI_Controller
-{
-    public function __construct()
-    {
+class KriteriaController extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->model('Kriteria');
     }
 
-    public function index()
-    {
+    public function index() {
         $session = $this->session->userdata('isLogin');
 
         if ($session == false) {
@@ -28,8 +26,7 @@ class KriteriaController extends CI_Controller
         }
     }
 
-    public function tambahKriteria()
-    {
+    public function tambahKriteria() {
         $val = array(
             'id_kriteria' => $this->uuid->v4(),
             'kriteria' => $this->input->post('kriteria'),
@@ -39,4 +36,25 @@ class KriteriaController extends CI_Controller
         $this->Kriteria->tambahKriteria($val);
         redirect('admin/KriteriaController');
     }
+
+    public function editKriteria($idKriteria) {
+        $data['kriteria'] = $this->Kriteria->ambilKriteriaBerdasarkanId($idKriteria);
+        $this->load->view('admin/KriteriaTambahView', $data);
+    }
+
+    public function updateKriteria() {
+        $val = array(
+            'kriteria' => $this->input->post('kriteria'),
+            'bobot' => $this->input->post('bobot'),
+            'keterangan' => $this->input->post('keterangan'),
+        );
+        $this->Kriteria->ubahKriteria($val, $this->input->post('id_kriteria'));
+        redirect('admin/KriteriaController');
+    }
+
+    public function hapusKriteria($idKriteria) {
+        $this->Kriteria->hapusKriteria($idKriteria);
+        redirect('admin/KriteriaController');
+    }
+
 }

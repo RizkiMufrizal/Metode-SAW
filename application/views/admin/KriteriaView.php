@@ -43,25 +43,22 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <?php if (sizeof($kriteria) == 5) {
-    ?>
+                            <?php if (sizeof($kriteria) == 5) { ?>
                                 <button class="btn btn-primary" disabled>Tambah Data</button>
-                            <?php
-} else {
-    ?>
+                            <?php } else { ?>
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
-                            <?php
-} ?>
+                            <?php } ?>
 
                             <p></p>
 
                             <table id="calonsiswa" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID Kriteria</th>
-                                        <th>Keterangan</th>
-                                        <th>Kriteria</th>
-                                        <th>Bobot</th>
+                                        <th class="text-center">ID Kriteria</th>
+                                        <th class="text-center">Keterangan</th>
+                                        <th class="text-center">Kriteria</th>
+                                        <th class="text-center">Bobot</th>
+                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,14 +67,22 @@
                                     foreach ($kriteria as $k) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $k->id_kriteria;
-                                        ?></td>
-                                            <td><?php echo $k->keterangan;
-                                        ?></td>
-                                            <td><?php echo $k->kriteria;
-                                        ?></td>
-                                            <td><?php echo $k->bobot;
-                                        ?></td>
+                                            <td><?php echo $k->id_kriteria; ?></td>
+                                            <td><?php echo $k->keterangan; ?></td>
+                                            <td><?php echo $k->kriteria; ?></td>
+                                            <td><?php echo $k->bobot; ?></td>
+                                            <td class="text-center">
+                                                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController/editKriteria/<?php echo $k->id_kriteria; ?>">
+                                                    <button class="btn btn-success">
+                                                        <i class="glyphicon glyphicon-pencil"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController/hapusKriteria/<?php echo $k->id_kriteria; ?>">
+                                                    <button class="btn btn-danger">
+                                                        <i class="glyphicon glyphicon-trash"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
                                         </tr>
                                         <?php
                                         $totalBobot = $totalBobot + $k->bobot;
@@ -90,6 +95,7 @@
                                         <td></td>
                                         <td>Total Kriteria : </td>
                                         <td><?php echo $totalBobot; ?></td>
+                                        <td></td>
                                     </tr>
                                 </tfoot>
                             </table>
