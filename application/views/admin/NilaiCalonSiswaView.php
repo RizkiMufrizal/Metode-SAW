@@ -46,58 +46,27 @@
                             <table id="calonsiswa" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th rowspan="2">NIM</th>
-                                        <th rowspan="2">Nama</th>
-                                        <th colspan="2">Nilai Psikotes</th>
-                                        <th colspan="2">Nilai PSM Test</th>
-                                        <th colspan="2">Nilai Angket Siswa</th>
-                                        <th colspan="2">Nilai UN</th>
-                                        <th colspan="2">Nilai Raport</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Nilai Range</th>
-                                        <th>Nilai Asli</th>
-                                        <th>Nilai Range</th>
-                                        <th>Nilai Asli</th>
-                                        <th>Nilai Range</th>
-                                        <th>Nilai Asli</th>
-                                        <th>Nilai Range</th>
-                                        <th>Nilai Asli</th>
-                                        <th>Nilai Range</th>
-                                        <th>Nilai Asli</th>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>Nilai Psikotes</th>
+                                        <th>Nilai PSM Test</th>
+                                        <th>Nilai Angket Siswa</th>
+                                        <th>Nilai UN</th>
+                                        <th>Nilai Raport</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($nilai_calon_siswa as $n) {
-    ?>
+                                    <?php foreach ($nilai_calon_siswa as $n) { ?>
                                         <tr>
-                                            <td><?php echo $n->nim;
-    ?></td>
-                                            <td><?php echo $n->nama;
-    ?></td>
-                                            <td><?php echo $n->c1;
-    ?></td>
-                                            <td><?php echo $n->nilai_asli_c1;
-    ?></td>
-                                            <td><?php echo $n->c2;
-    ?></td>
-                                            <td><?php echo $n->nilai_asli_c2;
-    ?></td>
-                                            <td><?php echo $n->c3;
-    ?></td>
-                                            <td><?php echo $n->nilai_asli_c3;
-    ?></td>
-                                            <td><?php echo $n->c4;
-    ?></td>
-                                            <td><?php echo $n->nilai_asli_c4;
-    ?></td>
-                                            <td><?php echo $n->c5;
-    ?></td>
-                                            <td><?php echo $n->nilai_asli_c5;
-    ?></td>
+                                            <td><?php echo $n->nim; ?></td>
+                                            <td><?php echo $n->nama; ?></td>
+                                            <td><?php echo $n->c1; ?></td>
+                                            <td><?php echo $n->c2; ?></td>
+                                            <td><?php echo $n->c3; ?></td>
+                                            <td><?php echo $n->c4; ?></td>
+                                            <td><?php echo $n->c5; ?></td>
                                         </tr>
-                                    <?php
-} ?>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
