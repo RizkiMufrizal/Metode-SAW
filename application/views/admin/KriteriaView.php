@@ -51,7 +51,7 @@
 
                             <p></p>
 
-                            <table id="calonsiswa" class="table table-bordered table-hover table-striped">
+                            <table id="kriteria" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
                                         <th class="text-center">ID Kriteria</th>
