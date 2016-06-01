@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-    
+
     @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
     @Since May 29, 2016
     @Time 1:59:11 AM
@@ -19,6 +19,30 @@
     </head>
     <body>
 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button>
+                    <a class="navbar-brand" href="#">Metode SAW</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>index.php/admin/login">Login</a>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </nav>
+
         <div class="container">
             <div class="row">
                 <table id="normalisasi" class="table table-bordered table-hover table-striped">
@@ -36,11 +60,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $i = 0;
-                        foreach ($normalisasi as $n) {
-                            ++$i;
-                            ?>
+                        <?php $i = 0; foreach ($normalisasi as $n) { ++$i; ?>
                             <tr>
                                 <td><?php echo $n->nim; ?></td>
                                 <td><?php echo $n->nama; ?></td>
@@ -52,7 +72,7 @@
                                 <td><?php echo $n->total_nilai; ?></td>
                                 <td><?php echo $i; ?></td>
                             </tr>
-<?php } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -64,7 +84,9 @@
         <script src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#normalisasi').DataTable();
+                $('#normalisasi').DataTable({
+                    'order': [[7, 'desc']]
+                });
             });
         </script>
     </body>
