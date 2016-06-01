@@ -15,5 +15,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#calonsiswa').DataTable();
+        $('#kriteria').DataTable({
+            'order': [[2, 'asc']]
+        });
+        $('#normalisasi').DataTable({
+            'order': [[7, 'desc']]
+        });
     });
 </script>
