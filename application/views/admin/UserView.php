@@ -29,19 +29,40 @@
     </head>
     <body>
 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button>
+                    <a class="navbar-brand" href="#">Metode SAW</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>index.php/admin/login">Login</a>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </nav>
+        
         <div class="container">
 
             <form class="form-signin" method="post" action="<?php echo base_url(); ?>index.php/admin/login">
 
-                <?php if ($error != null) {
-    ?>
+                <?php if ($error != null) { ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Warning !</strong> <?php echo $error;
-    ?>
+                        <strong>Warning !</strong> <?php echo $error; ?>
                     </div>
-                <?php
-} ?>
+                <?php } ?>
 
                 <h2 class="form-signin-heading">Please sign in</h2>
 
