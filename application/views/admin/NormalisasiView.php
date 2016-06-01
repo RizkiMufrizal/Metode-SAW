@@ -49,7 +49,7 @@
 
                             <p></p>
 
-                            <table id="calonsiswa" class="table table-bordered table-hover table-striped">
+                            <table id="normalisasi" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
                                         <th>NIM</th>
