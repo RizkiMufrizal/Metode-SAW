@@ -54,7 +54,7 @@
                                     <div class="form-group">
                                         <label>Nama</label>
                                         <input type="text" value="<?php echo $c->nama; ?>" class="form-control" disabled>
-                                        <input type="hidden" name="nama" value="<?php echo $c->nim; ?>" class="form-control">
+                                        <input type="hidden" name="nama" value="<?php echo $c->nama; ?>" class="form-control">
                                     </div>
 
                                     <div class="form-group">
