@@ -57,30 +57,12 @@
                                         <input type="hidden" name="nama" value="<?php echo $c->nama; ?>" class="form-control">
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Nilai Psikotes</label>
-                                        <input type="text" name="c1" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 1">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nilai PSM Test</label>
-                                        <input type="text" name="c2" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 2">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nilai Angket Siswa</label>
-                                        <input type="text" name="c3" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 3">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nilai UN</label>
-                                        <input type="text" name="c4" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 4">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nilai Raport</label>
-                                        <input type="text" name="c5" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 5">
-                                    </div>
+                                    <?php foreach ($kriteria as $k) { ?>
+                                        <div class="form-group">
+                                            <label><?php echo $k->keterangan; ?></label>
+                                            <input type="text" name="<?php echo $k->kriteria; ?>" class="form-control" placeholder="Masukkan <?php echo $k->keterangan; ?>">
+                                        </div>
+                                    <?php } ?>
 
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </form>

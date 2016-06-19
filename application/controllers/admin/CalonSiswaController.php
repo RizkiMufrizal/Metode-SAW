@@ -16,6 +16,7 @@ class CalonSiswaController extends CI_Controller
         $this->load->library('CSVReader');
         $this->load->model('CalonSiswa');
         $this->load->model('NilaiCalonSiswa');
+        $this->load->model('Kriteria');
     }
 
     public function index()
@@ -46,6 +47,7 @@ class CalonSiswaController extends CI_Controller
     public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim)
     {
         $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
+        $data['kriteria'] = $this->Kriteria->ambilKriteria();
         $this->load->view('admin/CalonSiswaTambahNilaView', $data);
     }
 
