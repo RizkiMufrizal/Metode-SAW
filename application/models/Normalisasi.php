@@ -17,9 +17,9 @@ class Normalisasi extends CI_Model
         return $this->db->get('tb_calon_siswa_normalisasi')->result();
     }
 
-    public function ambilNormalisasiBerdasakanNim($nim)
+    public function ambilNormalisasiBerdasakanNisn($nisn)
     {
-        $this->db->where('nim', $nim);
+        $this->db->where('nisn', $nisn);
 
         return $this->db->count_all_results('tb_normalisasi');
     }

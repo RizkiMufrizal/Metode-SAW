@@ -8,10 +8,9 @@
  * Project Metode-Saw
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
  */
-class CalonSiswaController extends CI_Controller
-{
-    public function __construct()
-    {
+class CalonSiswaController extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->library('CSVReader');
         $this->load->model('CalonSiswa');
@@ -19,8 +18,7 @@ class CalonSiswaController extends CI_Controller
         $this->load->model('Kriteria');
     }
 
-    public function index()
-    {
+    public function index() {
         $session = $this->session->userdata('isLogin');
 
         if ($session == false) {
@@ -31,34 +29,32 @@ class CalonSiswaController extends CI_Controller
         }
     }
 
-    public function tambahCalonSiswa()
-    {
+    public function tambahCalonSiswa() {
         $val = array(
-            'nim' => $this->input->post('nim'),
+            'nisn' => $this->input->post('nisn'),
             'nama' => $this->input->post('nama'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'tanggal_lahir' => $this->input->post('tanggal_lahir'),
             'alamat' => $this->input->post('alamat'),
+            'asal_sekolah' => $this->input->post('asal_sekolah'),
+            'tahun_lulus' => $this->input->post('tahun_lulus')
         );
         $this->CalonSiswa->tambahCalonSiswa($val);
         redirect('admin/CalonSiswaController');
     }
 
-    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim)
-    {
-        $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
+    public function ambilCalonSiswaDanNilaiBerdasarkanNisn($nisn) {
+        $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNisn($nisn);
         $data['kriteria'] = $this->Kriteria->ambilKriteria();
         $this->load->view('admin/CalonSiswaTambahNilaView', $data);
     }
 
-    public function hapusCalonSiswa()
-    {
+    public function hapusCalonSiswa() {
         $this->CalonSiswa->hapusCalonSiswa();
         redirect('admin/CalonSiswaController');
     }
 
-    public function uploadCsvCalonSiswa()
-    {
+    public function uploadCsvCalonSiswa() {
         $namaFile = $this->uuid->v4();
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
@@ -70,25 +66,27 @@ class CalonSiswaController extends CI_Controller
             echo $this->upload->display_errors();
         } else {
             $file_data = $this->upload->data();
-            $file_path = './uploads/'.$file_data['file_name'];
+            $file_path = './uploads/' . $file_data['file_name'];
 
             $result = $this->csvreader->parse_file($file_path);
 
             //simpan calon siswa
             foreach ($result as $row) {
                 $val = array(
-                    'nim' => $row['nim'],
+                    'nisn' => $row['nisn'],
                     'nama' => $row['nama'],
                     'jenis_kelamin' => $row['jenis_kelamin'],
                     'tanggal_lahir' => $row['tanggal_lahir'],
                     'alamat' => $row['alamat'],
+                    'asal_sekolah' => $row['asal_sekolah'],
+                    'tahun_lulus' => $row['tahun_lulus']
                 );
                 $this->CalonSiswa->tambahCalonSiswa($val);
             }
 
             //simpan calon siswa
             foreach ($result as $row) {
-                $nim = $row['nim'];
+                $nisn = $row['nisn'];
                 $c1 = $row['nilai_psikotes'];
                 $c2 = $row['nilai_psm_test'];
                 $c3 = $row['nilai_angket_siswa'];
@@ -102,7 +100,7 @@ class CalonSiswaController extends CI_Controller
                     'c3' => $c3,
                     'c4' => $c4,
                     'c5' => $c5,
-                    'nim' => $nim,
+                    'nisn' => $nisn,
                 );
 
                 $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
@@ -110,10 +108,11 @@ class CalonSiswaController extends CI_Controller
                 $valCalonSiswa = array(
                     'status' => true,
                 );
-                $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nim);
+                $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nisn);
             }
 
             redirect('admin/CalonSiswaController');
         }
     }
+
 }

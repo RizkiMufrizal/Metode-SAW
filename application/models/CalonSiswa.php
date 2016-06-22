@@ -20,16 +20,16 @@ class CalonSiswa extends CI_Model
         return $this->db->get('tb_calon_siswa')->result();
     }
 
-    public function ambilCalonSiswaBerdasarkanNim($nim)
+    public function ambilCalonSiswaBerdasarkanNisn($nisn)
     {
-        $this->db->where('nim', $nim);
+        $this->db->where('nisn', $nisn);
 
         return $this->db->get('tb_calon_siswa')->result();
     }
 
-    public function ubahCalonSiswa($calonSiswa, $nim)
+    public function ubahCalonSiswa($calonSiswa, $nisn)
     {
-        $this->db->where('nim', $nim);
+        $this->db->where('nisn', $nisn);
         $this->db->update('tb_calon_siswa', $calonSiswa);
     }
 

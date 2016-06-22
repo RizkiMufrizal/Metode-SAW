@@ -46,9 +46,9 @@
                                 <form method="post" action="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController/tambahNilaiCalonSiswa">
 
                                     <div class="form-group">
-                                        <label>NIM</label>
-                                        <input type="text" value="<?php echo $c->nim; ?>" class="form-control" disabled>
-                                        <input type="hidden" name="nim" value="<?php echo $c->nim; ?>" class="form-control">
+                                        <label>NISN</label>
+                                        <input type="text" value="<?php echo $c->nisn; ?>" class="form-control" disabled>
+                                        <input type="hidden" name="nisn" value="<?php echo $c->nisn; ?>" class="form-control">
                                     </div>
 
                                     <div class="form-group">

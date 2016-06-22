@@ -20,11 +20,13 @@ CREATE TABLE tb_kriteria(
 )ENGINE=INNODB;
 
 CREATE TABLE tb_calon_siswa(
-    nim VARCHAR(50) NOT NULL PRIMARY KEY,
+    nisn VARCHAR(50) NOT NULL PRIMARY KEY,
     nama VARCHAR(50) NOT NULL,
     jenis_kelamin VARCHAR(6) NOT NULL,
     tanggal_lahir DATE NOT NULL,
     alamat TEXT NOT NULL,
+    asal_sekolah VARCHAR(50) NOT NULL,
+    tahun_lulus INT NOT NULL,
     status BOOLEAN DEFAULT FALSE
 )ENGINE=INNODB;
 
@@ -35,8 +37,8 @@ CREATE TABLE tb_nilai_calon_siswa(
     c3 FLOAT NOT NULL,
     c4 FLOAT NOT NULL,
     c5 FLOAT NOT NULL,
-    nim VARCHAR(50) NOT NULL,
-    FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
+    nisn VARCHAR(50) NOT NULL,
+    FOREIGN KEY(nisn) REFERENCES tb_calon_siswa(nisn)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 )ENGINE=INNODB;
@@ -49,8 +51,8 @@ CREATE TABLE tb_normalisasi(
     nilai_c4 FLOAT NOT NULL,
     nilai_c5 FLOAT NOT NULL,
     total_nilai FLOAT NOT NULL,
-    nim VARCHAR(50) NOT NULL,
-    FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
+    nisn VARCHAR(50) NOT NULL,
+    FOREIGN KEY(nisn) REFERENCES tb_calon_siswa(nisn)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 )ENGINE=INNODB;
@@ -62,7 +64,7 @@ CREATE TABLE tb_user(
 
 CREATE VIEW `tb_calon_siswa_nilai` AS
 SELECT
-  `tb_calon_siswa`.`nim`,
+  `tb_calon_siswa`.`nisn`,
   `tb_calon_siswa`.`nama`,
   `tb_nilai_calon_siswa`.`c1`,
   `tb_nilai_calon_siswa`.`c2`,
@@ -72,11 +74,11 @@ SELECT
 FROM
   `tb_calon_siswa`
 INNER JOIN
-  `tb_nilai_calon_siswa` ON `tb_calon_siswa`.`nim` = `tb_nilai_calon_siswa`.`nim`;
+  `tb_nilai_calon_siswa` ON `tb_calon_siswa`.`nisn` = `tb_nilai_calon_siswa`.`nisn`;
 
 CREATE VIEW `tb_calon_siswa_normalisasi` AS
 SELECT
-  `tb_calon_siswa`.`nim`,
+  `tb_calon_siswa`.`nisn`,
   `tb_calon_siswa`.`nama`,
   `tb_normalisasi`.`total_nilai`,
   `tb_normalisasi`.`nilai_c5`,
@@ -87,6 +89,6 @@ SELECT
 FROM
   `tb_calon_siswa`
 INNER JOIN
-  `tb_normalisasi` ON `tb_calon_siswa`.`nim` = `tb_normalisasi`.`nim`;
+  `tb_normalisasi` ON `tb_calon_siswa`.`nisn` = `tb_normalisasi`.`nisn`;
 
 INSERT INTO `tb_user` (`email`, `password`) VALUES ('admin@gmail.com', '$2a$06$4zliyvsxzOUndwPSM56GYe8LCTMqO.qFNBA6bm9kjjDuHosz7eLyC');

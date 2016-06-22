@@ -25,9 +25,9 @@ class NilaiCalonSiswa extends CI_Model
         $this->db->insert('tb_nilai_calon_siswa', $nilaiCalonSiswa);
     }
 
-    public function ambilNilaiCalonSiswaBerdasakanNim($nim)
+    public function ambilNilaiCalonSiswaBerdasakanNisn($nisn)
     {
-        $this->db->where('nim', $nim);
+        $this->db->where('nisn', $nisn);
 
         return $this->db->count_all_results('tb_calon_siswa_nilai');
     }

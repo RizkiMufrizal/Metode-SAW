@@ -69,14 +69,14 @@ class NormalisasiController extends CI_Controller
                     ));
                 }
                 array_push($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria, array(
-                    'nim' => $n['nim'],
+                    'nisn' => $n['nisn'],
                     'nama' => $n['nama'],
                     'hasil_akhir' => $c,
                 ));
             }
 
             foreach ($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria as $n) {
-                if ($this->Normalisasi->ambilNormalisasiBerdasakanNim($n['nim']) == 0) {
+                if ($this->Normalisasi->ambilNormalisasiBerdasakanNisn($n['nisn']) == 0) {
                     $val = array(
                         'id_normalisasi' => $this->uuid->v4(),
                         'nilai_c1' => ($n['hasil_akhir'][0]['hasil'] * $kriteria[0]->bobot),
@@ -89,7 +89,7 @@ class NormalisasiController extends CI_Controller
                         ($n['hasil_akhir'][2]['hasil'] * $kriteria[2]->bobot) +
                         ($n['hasil_akhir'][3]['hasil'] * $kriteria[3]->bobot) +
                         ($n['hasil_akhir'][4]['hasil'] * $kriteria[4]->bobot),
-                        'nim' => $n['nim'],
+                        'nisn' => $n['nisn'],
                     );
 
                     $this->Normalisasi->tambahNormalisasi($val);

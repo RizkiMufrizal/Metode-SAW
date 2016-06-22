@@ -69,27 +69,31 @@
                             <table id="calonsiswa" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th>NIM</th>
+                                        <th>NISN</th>
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
+                                        <th>Asal Sekolah</th>
+                                        <th>Tahun Lulus</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($calon_siswa as $s) { ?>
                                         <tr>
-                                            <td><?php echo $s->nim; ?></td>
+                                            <td><?php echo $s->nisn; ?></td>
                                             <td><?php echo $s->nama; ?></td>
                                             <td><?php echo $s->jenis_kelamin; ?></td>
                                             <td><?php echo $s->tanggal_lahir; ?></td>
                                             <td><?php echo $s->alamat; ?></td>
+                                            <td><?php echo $s->asal_sekolah; ?></td>
+                                            <td><?php echo $s->tahun_lulus; ?></td>
                                             <td class="text-center">
                                                 <?php if ($s->status) { ?>
                                                     <button class="btn btn-success" disabled>Tambah Nilai</button>
                                                 <?php } else { ?>
-                                                    <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim; ?>">
+                                                    <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNisn/<?php echo $s->nisn; ?>">
                                                         <button class="btn btn-success">Tambah Nilai</button>
                                                     </a>
                                                 <?php } ?>
@@ -115,8 +119,8 @@
                     <div class="modal-body">
                         <form action="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/tambahCalonSiswa" method="post">
                             <div class="form-group">
-                                <label>NIM</label>
-                                <input type="text" name="nim" class="form-control" placeholder="Masukkan NIM Anda">
+                                <label>NISN</label>
+                                <input type="text" name="nisn" class="form-control" placeholder="Masukkan NISN Anda">
                             </div>
                             <div class="form-group">
                                 <label>Nama</label>
@@ -133,6 +137,14 @@
                             <div class="form-group">
                                 <label>Alamat</label>
                                 <textarea name="alamat" class="form-control" placeholder="Masukkan Alamat Anda"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Asal Sekolah</label>
+                                <input type="text" name="asal_sekolah" class="form-control" placeholder="Masukkan Asal Sekolah Anda">
+                            </div>
+                            <div class="form-group">
+                                <label>Tahun Lulus</label>
+                                <input type="number" name="tahun_lulus" class="form-control" placeholder="Masukkan Tahun Lulus Anda">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan</button>

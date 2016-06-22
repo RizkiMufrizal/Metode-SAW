@@ -46,7 +46,7 @@
                             <table id="calonsiswa" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th>NIM</th>
+                                        <th>NISN</th>
                                         <th>Nama</th>
                                         <th>Nilai Psikotes</th>
                                         <th>Nilai PSM Test</th>
@@ -58,7 +58,7 @@
                                 <tbody>
                                     <?php foreach ($nilai_calon_siswa as $n) { ?>
                                         <tr>
-                                            <td><?php echo $n->nim; ?></td>
+                                            <td><?php echo $n->nisn; ?></td>
                                             <td><?php echo $n->nama; ?></td>
                                             <td><?php echo $n->c1; ?></td>
                                             <td><?php echo $n->c2; ?></td>
