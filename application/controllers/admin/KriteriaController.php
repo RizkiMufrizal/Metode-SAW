@@ -39,7 +39,7 @@ class KriteriaController extends CI_Controller {
 
     public function editKriteria($idKriteria) {
         $data['kriteria'] = $this->Kriteria->ambilKriteriaBerdasarkanId($idKriteria);
-        $this->load->view('admin/KriteriaTambahView', $data);
+        $this->load->view('admin/KriteriaEditView', $data);
     }
 
     public function updateKriteria() {
