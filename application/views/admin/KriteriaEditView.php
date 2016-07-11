@@ -30,11 +30,11 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Ubah Kriteria
+                                Kriteria
                             </h1>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Tambah Nilai Calon Siswa
+                                    <i class="glyphicon glyphicon-dashboard"></i> Ubah Kriteria
                                 </li>
                             </ol>
                         </div>
